@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        img {
+            max-width: 30%; /* Ajusta el tamaño de la imagen según sea necesario */
+            height: auto;
+        }
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px; /* Tamaño inicial del botón */
+            cursor: pointer;
+            border: 1px solid #000;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #000;
+        }
+        .btn:hover {
+            background-color: #f0f0f0;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="section1" class="container">
+        <h1>¿Quieres ser mi San Valentín?</h1>
+        <img src="c:\Users\default.LAPTOP-4U1VS1ER\Desktop\fabi\imagen1.jpg" alt="Imagen San Valentín">
+        <div>
+            <a href="#" class="btn" onclick="mostrarMensajeAceptacion()">Sí</a>
+            <a href="#" class="btn" onclick="mostrarPreguntaSegura()">No</a>
+        </div>
+    </div>
+    
+    <div id="section2" class="container hidden">
+        <h1>Gracias por aceptar mi amor</h1>
+        <img src="c:\Users\default.LAPTOP-4U1VS1ER\Desktop\fabi\gif1.gif" alt="Imagen de Agradecimiento">
+        <div>
+            <a href="#" class="btn" onclick="mostrarSiguientePregunta()">Pasamos a la siguiente pregunta?</a>
+        </div>
+    </div>
+
+    <div id="section3" class="container hidden">
+        <h1>¿Estás segura?</h1>
+        <img src="c:\Users\default.LAPTOP-4U1VS1ER\Desktop\fabi\imagen2.jpg" alt="Otra Imagen">
+        <div>
+            <a href="#" class="btn" onclick="crearBucle()">Sí</a>
+            <a href="#" class="btn" onclick="volverAlInicio()">No</a>
+        </div>
+    </div>
+
+    <div id="section4" class="container hidden">
+        <h1>¿Puedo ser tu novio de nuevo?</h1>
+        <img src="c:\Users\default.LAPTOP-4U1VS1ER\Desktop\fabi\imagen3.jpg" alt="Imagen de la Siguiente Pregunta">
+    </div>
+    
+    <script>
+        let contadorNo = 0; // Inicializa el contador de clicks en "No"
+
+        function mostrarMensajeAceptacion() {
+            document.getElementById('section1').classList.add('hidden');
+            document.getElementById('section2').classList.remove('hidden');
+            document.getElementById('section3').classList.add('hidden');
+            document.getElementById('section4').classList.add('hidden');
+        }
+
+        function mostrarPreguntaSegura() {
+            document.getElementById('section1').classList.add('hidden');
+            document.getElementById('section2').classList.add('hidden');
+            document.getElementById('section3').classList.remove('hidden');
+            document.getElementById('section4').classList.add('hidden');
+        }
+
+        function mostrarSiguientePregunta() {
+            document.getElementById('section1').classList.add('hidden');
+            document.getElementById('section2').classList.add('hidden');
+            document.getElementById('section3').classList.add('hidden');
+            document.getElementById('section4').classList.remove('hidden');
+        }
+
+        function crearBucle() {
+            contadorNo++; // Incrementa el contador de clicks en "No"
+            const btnNo = document.querySelector('#section3 .btn:last-child');
+            btnNo.style.fontSize = `${16 + contadorNo * 30}px`; // Aumenta el tamaño del botón "No" 
+        }
+
+        function volverAlInicio() {
+            document.getElementById('section1').classList.remove('hidden');
+            document.getElementById('section2').classList.add('hidden');
+            document.getElementById('section3').classList.add('hidden');
+            document.getElementById('section4').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
